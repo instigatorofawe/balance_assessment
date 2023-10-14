@@ -19,7 +19,7 @@ NumericMatrix dcenter(NumericMatrix x) {
             result(i,j) = x(i,j) - row_means[i] - row_means[j] + grand_mean;
         }
     }
-
     return result;
-
 }
+
+
