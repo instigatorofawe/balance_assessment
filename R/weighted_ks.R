@@ -56,5 +56,5 @@ weighted_ecdf = function(x, weights=NULL) {
     }
 
     x_order = order(x)
-    stepfun(x[x_order], c(0, cumsum(weights[x_order]))/sum(weights))
+    stats::stepfun(x[x_order], c(0, cumsum(weights[x_order]))/sum(weights))
 }

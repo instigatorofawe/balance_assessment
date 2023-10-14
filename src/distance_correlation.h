@@ -4,4 +4,6 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+NumericMatrix dcenter(NumericMatrix x);
+
 #endif
