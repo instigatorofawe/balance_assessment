@@ -26,7 +26,7 @@ weighted_mean <- function(x, w) {
 #'
 #' This function returns the weighted variance of a vector
 #' @param x A numeric vector for which to compute the weighted variance
-#' @param w A numeric vector of the same length as x
+#' @param w A numeric vector of the same length as x, with frequency weights (i.e. sum of weights is equal to number of occurrences)
 #' @return Returns the weighted variance
 #' @export
 weighted_var <- function(x, w) {
@@ -37,7 +37,7 @@ weighted_var <- function(x, w) {
 #'
 #' This function returns the weighted sd of a vector
 #' @param x A numeric vector for which to compute the weighted sd
-#' @param w A numeric vector of the same length as x
+#' @param w A numeric vector of the same length as x, with frequency weights (i.e. the sum of weights is equal to the number of occurrences)
 #' @return Returns the weighted sd
 #' @export
 weighted_sd <- function(x, w) {

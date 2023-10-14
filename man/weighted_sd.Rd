@@ -9,7 +9,7 @@ weighted_sd(x, w)
 \arguments{
 \item{x}{A numeric vector for which to compute the weighted sd}
 
-\item{w}{A numeric vector of the same length as x}
+\item{w}{A numeric vector of the same length as x, with frequency weights (i.e. the sum of weights is equal to the number of occurrences)}
 }
 \value{
 Returns the weighted sd
