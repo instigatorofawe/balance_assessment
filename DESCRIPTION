@@ -11,7 +11,9 @@ Imports:
     magrittr,
     Rcpp (>= 1.0.11),
     stats
-LinkingTo: Rcpp
+LinkingTo: 
+    Rcpp,
+    RcppArmadillo
 RoxygenNote: 7.2.3
 Encoding: UTF-8
 Suggests: 
