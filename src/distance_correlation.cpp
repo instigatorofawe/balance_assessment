@@ -45,3 +45,11 @@ arma::mat weighted_dcenter(arma::mat x, arma::mat w) {
 
     return result;
 }
+
+//' Compute weighted distance covariance
+//'
+//' This function computes the distance covariance between x and y, where data points are weighted by w
+double weighted_dcov(arma::mat x, arma::mat y, arma::vec w) {
+    // TODO
+    return 0;
+}
