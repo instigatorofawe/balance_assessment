@@ -22,6 +22,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// weighted_dcenter
+arma::mat weighted_dcenter(arma::mat x, arma::mat w);
+RcppExport SEXP _balanceAssessment_weighted_dcenter(SEXP xSEXP, SEXP wSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type x(xSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type w(wSEXP);
+    rcpp_result_gen = Rcpp::wrap(weighted_dcenter(x, w));
+    return rcpp_result_gen;
+END_RCPP
+}
 // weighted_mean
 double weighted_mean(NumericVector x, NumericVector w);
 RcppExport SEXP _balanceAssessment_weighted_mean(SEXP xSEXP, SEXP wSEXP) {
@@ -61,6 +73,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_balanceAssessment_dcenter", (DL_FUNC) &_balanceAssessment_dcenter, 1},
+    {"_balanceAssessment_weighted_dcenter", (DL_FUNC) &_balanceAssessment_weighted_dcenter, 2},
     {"_balanceAssessment_weighted_mean", (DL_FUNC) &_balanceAssessment_weighted_mean, 2},
     {"_balanceAssessment_weighted_var", (DL_FUNC) &_balanceAssessment_weighted_var, 2},
     {"_balanceAssessment_weighted_sd", (DL_FUNC) &_balanceAssessment_weighted_sd, 2},

@@ -5,10 +5,9 @@ Version: 1.0
 Date: 2023-10-13
 Author: Ran Liu
 Maintainer: Ran Liu <rliu20@stanford.edu>
-Description: One paragraph description of what the package does as one or more full sentences.
+Description: Implements balance assessment metrics for evaluation of the quality of propensity weighting/matching/rebalancing.
 License: GPL (>= 2)
 Imports: 
-    magrittr,
     Rcpp (>= 1.0.11),
     stats
 LinkingTo: 

@@ -11,6 +11,17 @@ dcenter <- function(x) {
     .Call(`_balanceAssessment_dcenter`, x)
 }
 
+#' Compute doubly centered matrix
+#'
+#' This function returns the doubly centered version of a matrix
+#' @param x A matrix which to doubly center
+#' @param w A matrix containing weights
+#' @return Doubly centered version of a matrix
+#' @export
+weighted_dcenter <- function(x, w) {
+    .Call(`_balanceAssessment_weighted_dcenter`, x, w)
+}
+
 #' Weighted mean
 #'
 #' This function returns the weighted mean of a vector
