@@ -59,5 +59,5 @@ double weighted_dcov(arma::mat x, arma::mat y, arma::mat w) {
     arma::mat centered_x = weighted_dcenter(x, w);
     arma::mat centered_y = weighted_dcenter(y, w);
 
-    return arma::sum(arma::sum(centered_x % centered_y % w)) / arma::sum(arma::sum(w));
+    return sqrt(arma::sum(arma::sum(centered_x % centered_y % w)) / arma::sum(arma::sum(w)));
 }
