@@ -14,8 +14,8 @@ NumericMatrix dcenter(NumericMatrix x) {
 
     NumericMatrix result = clone(x);
 
-    for (int i = 0; i < x.nrow(); i++) {
-        for (int j = 0; j < x.ncol(); j++) {
+    for (unsigned int i = 0; i < x.nrow(); i++) {
+        for (unsigned int j = 0; j < x.ncol(); j++) {
             result(i,j) = x(i,j) - row_means[i] - row_means[j] + grand_mean;
         }
     }
@@ -37,8 +37,8 @@ arma::mat weighted_dcenter(arma::mat x, arma::mat w) {
 
     arma::mat result = arma::mat(size(x));
 
-    for (int i = 0; i < x.n_rows; i++) {
-        for (int j = 0; j < x.n_cols; j++) {
+    for (unsigned int i = 0; i < x.n_rows; i++) {
+        for (unsigned int j = 0; j < x.n_cols; j++) {
             result(i,j) = x(i,j) - row_means[i] - row_means[j] + grand_mean;
         }
     }
@@ -58,6 +58,27 @@ arma::mat weighted_dcenter(arma::mat x, arma::mat w) {
 double weighted_dcov(arma::mat x, arma::mat y, arma::mat w) {
     arma::mat centered_x = weighted_dcenter(x, w);
     arma::mat centered_y = weighted_dcenter(y, w);
-
     return sqrt(arma::sum(arma::sum(centered_x % centered_y % w)) / arma::sum(arma::sum(w)));
 }
+
+//' Compute weighted distance correlation
+//'
+//' This function computes the distance correlation between x and y, where data points are weighted by w
+//' @param x Distance matrix for x
+//' @param y Distance matrix for y
+//' @param w Weights
+//' @return Distance correlation
+//' @export
+// [[Rcpp::export]]
+double weighted_dcor(arma::mat x, arma::mat y, arma::mat w) {
+    arma::mat centered_x = weighted_dcenter(x, w);
+    arma::mat centered_y = weighted_dcenter(y, w);
+    double sigma_w = arma::sum(arma::sum(w));
+
+    return sqrt(arma::sum(arma::sum(centered_x % centered_y % w)) / sigma_w /
+                sqrt(arma::sum(arma::sum(centered_x % centered_x % w)) / sigma_w * arma::sum(arma::sum(centered_y % centered_y % w)) / sigma_w));
+}
+
+
+
+

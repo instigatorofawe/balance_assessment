@@ -34,6 +34,18 @@ weighted_dcov <- function(x, y, w) {
     .Call(`_balanceAssessment_weighted_dcov`, x, y, w)
 }
 
+#' Compute weighted distance correlation
+#'
+#' This function computes the distance correlation between x and y, where data points are weighted by w
+#' @param x Distance matrix for x
+#' @param y Distance matrix for y
+#' @param w Weights
+#' @return Distance correlation
+#' @export
+weighted_dcor <- function(x, y, w) {
+    .Call(`_balanceAssessment_weighted_dcor`, x, y, w)
+}
+
 #' Weighted mean
 #'
 #' This function returns the weighted mean of a vector

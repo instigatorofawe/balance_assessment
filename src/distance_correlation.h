@@ -9,6 +9,7 @@ using namespace Rcpp;
 
 NumericMatrix dcenter(NumericMatrix x);
 arma::mat weighted_dcenter(arma::mat x, arma::mat w);
-double weighted_dcov(arma::mat x, arma::mat y, arma::vec w);
+double weighted_dcov(arma::mat x, arma::mat y, arma::mat w);
+double weighted_dcor(arma::mat x, arma::mat y, arma::mat w);
 
 #endif

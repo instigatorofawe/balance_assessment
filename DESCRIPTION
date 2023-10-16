@@ -9,7 +9,8 @@ Description: Implements balance assessment metrics for evaluation of the quality
 License: GPL (>= 2)
 Imports: 
     Rcpp (>= 1.0.11),
-    stats
+    stats,
+    energy
 LinkingTo: 
     Rcpp,
     RcppArmadillo
