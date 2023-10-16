@@ -7,7 +7,7 @@
 weighted_dcenter(x, w)
 }
 \arguments{
-\item{x}{A matrix which to doubly center}
+\item{x}{A matrix which to doubly center: distance matrix x}
 
 \item{w}{A matrix containing weights}
 }

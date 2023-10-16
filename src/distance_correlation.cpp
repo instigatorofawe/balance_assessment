@@ -25,7 +25,7 @@ NumericMatrix dcenter(NumericMatrix x) {
 //' Compute doubly centered matrix
 //'
 //' This function returns the doubly centered version of a matrix
-//' @param x A matrix which to doubly center
+//' @param x A matrix which to doubly center: distance matrix x
 //' @param w A matrix containing weights
 //' @return Doubly centered version of a matrix
 //' @export
@@ -49,7 +49,15 @@ arma::mat weighted_dcenter(arma::mat x, arma::mat w) {
 //' Compute weighted distance covariance
 //'
 //' This function computes the distance covariance between x and y, where data points are weighted by w
-double weighted_dcov(arma::mat x, arma::mat y, arma::vec w) {
-    // TODO
-    return 0;
+//' @param x Distance matrix for x
+//' @param y Distance matrix for y
+//' @param w Weights
+//' @return Distance covariance
+//' @export
+// [[Rcpp::export]]
+double weighted_dcov(arma::mat x, arma::mat y, arma::mat w) {
+    arma::mat centered_x = weighted_dcenter(x, w);
+    arma::mat centered_y = weighted_dcenter(y, w);
+
+    return arma::sum(arma::sum(centered_x % centered_y % w)) / arma::sum(arma::sum(w));
 }

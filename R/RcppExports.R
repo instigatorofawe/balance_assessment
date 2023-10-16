@@ -14,12 +14,24 @@ dcenter <- function(x) {
 #' Compute doubly centered matrix
 #'
 #' This function returns the doubly centered version of a matrix
-#' @param x A matrix which to doubly center
+#' @param x A matrix which to doubly center: distance matrix x
 #' @param w A matrix containing weights
 #' @return Doubly centered version of a matrix
 #' @export
 weighted_dcenter <- function(x, w) {
     .Call(`_balanceAssessment_weighted_dcenter`, x, w)
+}
+
+#' Compute weighted distance covariance
+#'
+#' This function computes the distance covariance between x and y, where data points are weighted by w
+#' @param x Distance matrix for x
+#' @param y Distance matrix for y
+#' @param w Weights
+#' @return Distance covariance
+#' @export
+weighted_dcov <- function(x, y, w) {
+    .Call(`_balanceAssessment_weighted_dcov`, x, y, w)
 }
 
 #' Weighted mean
