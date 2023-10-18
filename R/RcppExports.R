@@ -11,6 +11,16 @@ dcenter <- function(x) {
     .Call(`_balanceAssessment_dcenter`, x)
 }
 
+#' Compute cross weight matrix
+#'
+#' This function returns the doubly centered version of a matrix
+#' @param w A vector containing weights
+#' @return Matrix of squared weights
+#' @export
+cross_weights <- function(w) {
+    .Call(`_balanceAssessment_cross_weights`, w)
+}
+
 #' Compute doubly centered matrix
 #'
 #' This function returns the doubly centered version of a matrix

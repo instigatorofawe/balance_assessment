@@ -10,7 +10,8 @@ License: GPL (>= 2)
 Imports: 
     Rcpp (>= 1.0.11),
     stats,
-    energy
+    energy,
+    magrittr
 LinkingTo: 
     Rcpp,
     RcppArmadillo

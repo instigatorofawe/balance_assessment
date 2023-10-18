@@ -22,6 +22,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cross_weights
+arma::mat cross_weights(arma::vec w);
+RcppExport SEXP _balanceAssessment_cross_weights(SEXP wSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type w(wSEXP);
+    rcpp_result_gen = Rcpp::wrap(cross_weights(w));
+    return rcpp_result_gen;
+END_RCPP
+}
 // weighted_dcenter
 arma::mat weighted_dcenter(arma::mat x, arma::mat w);
 RcppExport SEXP _balanceAssessment_weighted_dcenter(SEXP xSEXP, SEXP wSEXP) {
@@ -99,6 +110,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_balanceAssessment_dcenter", (DL_FUNC) &_balanceAssessment_dcenter, 1},
+    {"_balanceAssessment_cross_weights", (DL_FUNC) &_balanceAssessment_cross_weights, 1},
     {"_balanceAssessment_weighted_dcenter", (DL_FUNC) &_balanceAssessment_weighted_dcenter, 2},
     {"_balanceAssessment_weighted_dcov", (DL_FUNC) &_balanceAssessment_weighted_dcov, 3},
     {"_balanceAssessment_weighted_dcor", (DL_FUNC) &_balanceAssessment_weighted_dcor, 3},

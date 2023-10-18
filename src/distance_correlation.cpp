@@ -22,6 +22,19 @@ NumericMatrix dcenter(NumericMatrix x) {
     return result;
 }
 
+//' Compute cross weight matrix
+//'
+//' This function returns the doubly centered version of a matrix
+//' @param w A vector containing weights
+//' @return Matrix of squared weights
+//' @export
+// [[Rcpp::export]]
+arma::mat cross_weights(arma::vec w) {
+    arma::mat result = arma::mat(w);
+    result = result * result.t();
+    return result;
+}
+
 //' Compute doubly centered matrix
 //'
 //' This function returns the doubly centered version of a matrix
