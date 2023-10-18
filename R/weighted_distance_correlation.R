@@ -1,3 +1,9 @@
+#' Table of unweighted and weighted distance correlation
+#' @param treatment Treatment variable (binary)
+#' @param data Data for which rebalancing should be evaluated
+#' @param weights Propensity weights for each data point
+#' @return unweighted and weighted distance correlation
+#' @export
 weighted_dcorr_table = function(treatment, data, weights) {
     x_dist = stats::dist(data) %>% as.matrix
     u_dist = stats::dist(treatment) %>% as.matrix
