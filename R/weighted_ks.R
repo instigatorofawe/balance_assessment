@@ -4,7 +4,7 @@
 #' @param weights Propensity weights for each data point
 #' @return unweighted and weighted KS statistics
 #' @export
-weighted_ks = function(treatment, data, weights) {
+weighted_ks_table = function(treatment, data, weights) {
     treatment = treatment[!is.na(weights)]
     data = data[!is.na(weights),]
     weights = weights[!is.na(weights)]

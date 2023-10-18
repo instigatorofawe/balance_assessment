@@ -4,7 +4,7 @@
 #' @param weights Frequency weights for occurrences of data
 #' @return unweighted and weighted smd
 #' @export
-weighted_smd = function(treatment, data, weights) {
+weighted_smd_table = function(treatment, data, weights) {
     treatment = treatment[!is.na(weights)]
     data = data[!is.na(weights),]
     weights = weights[!is.na(weights)]

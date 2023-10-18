@@ -78,7 +78,3 @@ double weighted_dcor(arma::mat x, arma::mat y, arma::mat w) {
     return sqrt(arma::sum(arma::sum(centered_x % centered_y % w)) / sigma_w /
                 sqrt(arma::sum(arma::sum(centered_x % centered_x % w)) / sigma_w * arma::sum(arma::sum(centered_y % centered_y % w)) / sigma_w));
 }
-
-
-
-
