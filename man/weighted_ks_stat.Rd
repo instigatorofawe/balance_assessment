@@ -2,22 +2,20 @@
 % Please edit documentation in R/weighted_ks.R
 \name{weighted_ks_stat}
 \alias{weighted_ks_stat}
-\title{Compute weighted 2-sample KS statistics}
+\title{Weighted KS statistic}
 \usage{
-weighted_ks_stat(x, y, weights_x = NULL, weights_y = NULL)
+weighted_ks_stat(treatment, data, weights = rep(1, length(treatment)))
 }
 \arguments{
-\item{x}{First sample}
+\item{treatment}{Binary treatment variable}
 
-\item{y}{Second sample}
+\item{data}{Confounders for which to compute KS statistic}
 
-\item{weights_x}{Weights for first sample}
-
-\item{weights_y}{Weights for second sample}
+\item{weights}{Weights for each data point}
 }
 \value{
-Test statistic for weighted 2 samples
+KS statistic between treated and untreated group for each confounder
 }
 \description{
-Compute weighted 2-sample KS statistics
+Weighted KS statistic
 }

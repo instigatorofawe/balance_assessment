@@ -24,3 +24,17 @@ weighted_smd_table = function(treatment, data, weights) {
     rownames(result) = colnames(data)
     return(result)
 }
+
+#' Weighted SMD stat
+#' @param treament Binary treatment variable
+#' @param data Confounders for which to compute standardized mean difference
+#' @param weights Frequency weights for each data point
+#' @return SMD statistic
+#' @export
+weighted_smd_stat = function(treatment, data, weights=rep(1, length(treatment))) {
+
+    return(apply(data, 2, function(x) {
+        (balanceAssessment::weighted_mean(x[treatment], weights[treatment]) - balanceAssessment::weighted_mean(x[!treatment], weights[!treatment])) /
+            balanceAssessment::weighted_sd(x, weights)
+    }))
+}
