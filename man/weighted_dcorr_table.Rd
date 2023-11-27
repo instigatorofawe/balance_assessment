@@ -4,7 +4,7 @@
 \alias{weighted_dcorr_table}
 \title{Table of unweighted and weighted distance correlation}
 \usage{
-weighted_dcorr_table(treatment, data, weights)
+weighted_dcorr_table(treatment, data, weights = rep(1, length(treatment)))
 }
 \arguments{
 \item{treatment}{Treatment variable (binary)}
